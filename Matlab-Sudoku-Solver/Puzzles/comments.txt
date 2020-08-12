@@ -1,0 +1,6 @@
+A-Series
+A sample of typical sudoku puzzles with different difficulties that the program can solve correctly.
+
+B-Series
+Examples of sudoku puzzles that require additional strategies for solution (mutual exclusion, trial and backtracking, etc.),
+since current strategies cannot finish with a solution.
