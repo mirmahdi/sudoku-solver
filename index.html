@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sudoku Solver</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Sudoku Solver</h1>
+
+	<fieldset class="control-panel">
+		<legend>Game Controls</legend>
+
+		<div class="mode-controls">
+			<label><input type="radio" name="mode" value="instant" onchange="updateMode()" /> Instant Solve</label>
+			<label><input type="radio" name="mode" value="step" onchange="updateMode()" checked /> Step-by-Step</label>
+		</div>
+
+		<div id="step-controls" class="step-controls">
+			<label>Speed:
+				<input type="range" id="speed" min="0" max="1000" step="10" value="200"
+					oninput="document.getElementById('speed-label').textContent = this.value" />
+				<span id="speed-label">200</span>
+			</label>
+			<button id="pause-btn" onclick="pauseOrResume()">Pause</button>
+			<button id="step-btn" onclick="manualStep()">Manual Step</button>
+		</div>
+
+		<div class="action-buttons">
+			<button onclick="generatePuzzle()">Generate Puzzle</button>
+			<button onclick="uploadPuzzle()">Upload Puzzle</button>
+			<input type="file" id="fileInput" accept=".json" style="display:none;" />
+			<button onclick="startSolving()" id="start-btn">Start Solving</button>
+			<button onclick="resetPuzzle()" id="reset-btn" disabled>Reset</button>
+		</div>
+
+		<div class="stats">
+			⏱ Time: <span id="timer">0</span> sec | Moves: <span id="moves">0</span>
+		</div>
+	</fieldset>
+
+  <table id="sudoku-grid"></table>
+
+  <script src="solver.js"></script>
+</body>
+</html>
